@@ -38,7 +38,7 @@ def do_deploy(archive_path):
             sudo(f'rm -rf {unzip_loc}/web_static')
             sudo('rm -rf /data/web_static/current')
             sudo(f'ln -s {unzip_loc} /data/web_static/current')
-            print('Deployed successfully')
+            print('Deployed successfully on the server')
         else:
             return False
     except Exception as e:
