@@ -66,3 +66,7 @@ class FileStorage:
             # Either FileNotFound or JSONDecodeError when
             # the file exist, but nothing is inside
             pass
+
+    def close(self):
+        """Deserializes JSON to objects."""
+        reload()
