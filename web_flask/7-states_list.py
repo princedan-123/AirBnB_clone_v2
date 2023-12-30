@@ -57,6 +57,7 @@ def is_even(n):
     """A method that checks if a url contains an even or odd number."""
     return render_template("6-number_odd_or_even.html", number=n)
 
+
 @app.route("/states_list", strict_slashes=False)
 def states():
     """Returns a list of all state object in database."""
