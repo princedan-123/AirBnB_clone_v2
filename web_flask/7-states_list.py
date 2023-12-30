@@ -5,6 +5,7 @@
 from flask import Flask
 from flask import render_template
 from models import storage
+from models.state import State
 
 app = Flask(__name__)
 
@@ -61,7 +62,7 @@ def is_even(n):
 @app.route("/states_list", strict_slashes=False)
 def states():
     """Returns a list of all state object in database."""
-    objects = storage.all()
+    objects = storage.all(State)
     obj = objects.values()
     return render_template("7-states_list.html", obj=obj)
 
