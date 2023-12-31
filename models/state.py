@@ -4,8 +4,8 @@ from models.base_model import BaseModel
 from models.base_model import Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-from models import storage
 from models import city
+
 
 class State(BaseModel, Base):
     """ State class """
@@ -15,12 +15,14 @@ class State(BaseModel, Base):
     cities = relationship(
             "City", back_populates="state", cascade="all, delete-orphan"
             )
+
     @property
-    def cities(self):
+    def cities_remove_the_underscore(self):
         """ returns the list of City object
             with the same id as State
         """
         city_list = []
+        from models import storage
         city_objects = storage.all(city.City)
         for instance in city_objects:
             if instance == self.id:
